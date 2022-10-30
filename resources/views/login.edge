@@ -1,0 +1,114 @@
+@layout('layouts/main')
+
+  @section('title')
+  LOGIN
+  @endsection
+
+  @section('home')
+    <section class="bg-white dark:bg-gray-900">
+    <div class="flex justify-center min-h-screen">
+        <div class="hidden bg-cover lg:block lg:w-2/5" style="background-image: url('https://images.unsplash.com/photo-1494621930069-4fd4b2e24a11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80')">
+        </div>
+
+        <div class="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
+            <div class="w-full">
+                <h1 class="text-2xl font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
+                    Cadastro de Colaborador
+                </h1>
+
+                <p class="mt-4 text-gray-500 dark:text-gray-400">
+                    Encontre os melhores empregos e oportunidades.
+                </p>
+                <form class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2" action="/collaborators" method="POST">
+                    <div>
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Nome</label>
+                        <input type="text" name="name" placeholder="John" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+
+                    <div>
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Username</label>
+                        <input type="text"name="username" placeholder="john" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+
+                    <div x-data="{ mask:'000.000.000-00'}" x-init="IMask($refs.cpf, { mask })">
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">CPF</label>
+                        <input type="text" x-ref="cpf" name="cpf" placeholder="000.000.000-00" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+
+                    <div x-data="{ mask:'(00) 00000-0000'}" x-init="IMask($refs.phone, { mask })"> 
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Número de telefone</label>
+                        <input  type="text" x-ref="phone" name="phone" placeholder="XXX-XX-XXXX-XXX" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+
+                    <div>
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email</label>
+                        <input type="email" name="email" placeholder="johnsnow@example.com" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+
+                    <div>
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Senha</label>
+                        <input type="password" name="password" placeholder="Enter your password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+
+                    <div>
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Confirmar senha</label>
+                        <input type="password" name="password_confirmation" placeholder="Enter your password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+
+                    <button
+                        class="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                        <span>Sign Up </span>
+                    </button>
+                    <span><a href="/companies/create">Cadastre-se</a> como empresa</span>  
+                    <span>Ou faça o <a href="/login/create">Login</a></span>  
+                </form>
+            </div>
+         </div>
+        </div>
+    </section>
+
+@endsection
+@layout('layouts/main')
+
+  @section('title')
+  SIGAA
+  @endsection
+
+  @section('home')
+    <section class="bg-white dark:bg-gray-900">
+    <div class="flex justify-center min-h-screen">
+        <div class="hidden bg-cover lg:block lg:w-2/5" style="background-image: url('https://images.unsplash.com/photo-1494621930069-4fd4b2e24a11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80')">
+        </div>
+
+        <div class="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
+            <div class="w-full">
+                <h1 class="text-2xl font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
+                    Login
+                </h1>
+
+                <form class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2" action="/login" method="POST">
+                    <div>
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Username</label>
+                        <input type="text"name="username" placeholder="john" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+
+                    <div>
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Senha</label>
+                        <input type="password" name="password" placeholder="Enter your password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+
+                    <button
+                        class="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                        <span>Sign In</span>
+                    </button>
+                  </form>
+                  <div class="space-x-12 mt-6">
+                    <span><a href="/companies/create">Cadastre-se</a> como empresa</span>
+                    <span><a href="/collaborators/create">Cadastre-se</a> como colaborador</span>  
+                  </div>
+            </div>
+         </div>
+        </div>
+    </section>
+
+@endsection

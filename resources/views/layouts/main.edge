@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+  <title>
+    @!section('title')
+  </title>
+</head>
+<body>
+  <span class="alert-spam alert-message fixed top-14 right-5 z-50">
+    @if(!!flashMessages.get('error'))
+      @each(error in flashMessages.get('error'))
+        @!component('components/alert',{
+        message: error,
+        title: "Oops",
+        type: "error"
+      })
+      @endeach
+    @endif
+    @if(!!flashMessages.get('success'))
+      @each(success in flashMessages.get('success'))
+        @!component('components/alert',{
+        message: success,
+        title: "Exelcior!",
+        type: "success"
+      })
+      @endeach
+    @endif
+  </span>
+  @!section('home')
+</body>
+</html>
