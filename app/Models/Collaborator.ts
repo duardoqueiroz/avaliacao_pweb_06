@@ -43,10 +43,12 @@ export default class Collaborator extends BaseModel {
 
   @computed()
   public get sales() {
-    return this.invitations
-      .filter((i) => i.status === INVITATION_STATUS.CONTRACTED)
-      .map((i) => i.budget)
-      .reduce((a, b) => a + b)
+    return this.invitations.filter((i) => i.status === INVITATION_STATUS.CONTRACTED).length > 0
+      ? this.invitations
+          .filter((i) => i.status === INVITATION_STATUS.CONTRACTED)
+          .map((i) => i.budget)
+          .reduce((a, b) => a + b)
+      : 0
   }
 
   @beforeFetch()

@@ -19,7 +19,7 @@
                 <p class="mt-4 text-gray-500 dark:text-gray-400">
                     Encontre o melhor profissional para o seu negócio.
                 </p>
-                <form class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2" action="/collaborators" method="POST">
+                <form class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2" action="/companies" method="POST">
                     <div>
                         <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Nome</label>
                         <input type="text" name="name" placeholder="John" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
@@ -56,6 +56,7 @@
                     </div>
 
                     <button
+                        type="submit"
                         class="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                         <span>Sign Up </span>
                     </button>
